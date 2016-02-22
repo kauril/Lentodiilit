@@ -1,0 +1,31 @@
+<div class="col-md-8 col-md-offset-4">
+    <h2>Diilit{{ kategoria.name }}</h2>
+    <p></p>
+    <div class="panel panel-default">
+        <div class=panel-body>
+            <ul class=media-list id=deals>
+                <li ng-repeat="deal in deals">
+                    <div class="media" data-id="{{ deal.postid }}">
+                        
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="{{ deal.url }}">{{ deal.title }}</a></h4>
+                            <span class="text-muted">Julkaistu: {{ deal.published | date }}</span>
+                            <br>
+                            
+                            <span class="viesti" ng-show="deal.price != ''">{{ deal.price }}</span>
+                            <br>
+                            <!-- kuinka käytetään controllerissa dealsCtrl.js olevaa funktiota -->
+                            <!--<span class="viesti">{{ getPrice(deal.price) }}</span>                            
+                            <br>-->                            
+                            <span class="viesti">Kategoria: {{ deal.categories }}</span>
+                            <br>
+                            <span class="viesti" ng-show="deal.tags != ''">Avainsanat: {{ deal.tags }}</span>                    
+                            
+                            <hr>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
