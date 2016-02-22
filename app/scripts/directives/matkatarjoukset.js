@@ -2,9 +2,9 @@
 
 angular
   .module('lentodiilitApp')
-    .directive('radioBox', function() {
+    .directive('matkatarjoukset', function() {
         return {
             restrict: 'E',
-            templateUrl: 'views/radiobox.html'
+            templateUrl: 'views/matkatarjoukset.html'
         };
 });

@@ -5,7 +5,7 @@ angular.module('lentodiilitApp')
     
     
     
-   
+   $scope.naytacat = false;
     
     $scope.getCategories = function(){
       

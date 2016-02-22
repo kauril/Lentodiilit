@@ -1,10 +1,10 @@
 <div class="col-md-8 col-md-offset-4">
-    <h2> Kaikki Diilit</h2>
+    <h2>Muut</h2>
     <p></p>
     <div class="panel panel-default">
         <div class=panel-body>
             <ul class=media-list id=deals>
-                <li ng-repeat="deal in deals">
+                <li ng-repeat="deal in deals" ng-if="deal.categories!='Lentotarjoukset ' && deal.categories!='Matkatarjoukset ' && deal.categories!='Hotellitarjoukset '">
                     <div class="media" data-id="{{ deal.postid }}">
                         
                         <div class="media-body">
