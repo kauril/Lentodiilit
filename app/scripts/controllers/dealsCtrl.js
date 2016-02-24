@@ -10,7 +10,7 @@ angular.module('lentodiilitApp')
             var request = AjaxFactory.deals();
             request.then(function (response) {
                 // tee vastauksella jotain
-                console.log(response.data.deals);
+                console.log(response.data);
                 $scope.deals = response.data.deals;
                 $scope.showAll = true;
                 console.log($scope.showAll);
@@ -58,8 +58,12 @@ angular.module('lentodiilitApp')
             $scope.showFlight = false;
             $scope.showHotel = false;
             $scope.showOther = true;
-        };
+        }; 
+        
 
+        
+        
+    
         $scope.getPrice = function (price) {
 
             var res = price.split(',');

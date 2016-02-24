@@ -12,14 +12,15 @@
                             <span class="text-muted">Julkaistu: {{ deal.published | date }}</span>
                             <br>
                             
-                            <span class="viesti" ng-show="deal.price != ''">{{ deal.price }}</span>
+                            <span class="viesti" ng-show="deal.price != ''">{{ getPrice(deal.price) }}</span>
                             <br>
                             <!-- kuinka käytetään controllerissa dealsCtrl.js olevaa funktiota -->
                             <!--<span class="viesti">{{ getPrice(deal.price) }}</span>                            
                             <br>-->                            
                             <span class="viesti">Kategoria: {{ deal.categories }}</span>
                             <br>
-                            <span class="viesti" ng-show="deal.tags != ''">Avainsanat: {{ deal.tags }}</span>                    
+                            <span class="viesti" ng-show="deal.tags != ''">Avainsanat: {{ deal.tags }}</span>
+                            <span class="viesti" ng-show="deal.tags != ''">Sää: {{deal.tags }}</span>
                             
                             <hr>
                         </div>

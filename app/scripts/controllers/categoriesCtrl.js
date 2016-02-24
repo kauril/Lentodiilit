@@ -25,7 +25,7 @@ angular.module('lentodiilitApp')
     
    
     
-    $scope.getCategories();
+   /* $scope.getCategories();
     
     $(window).scroll(function(){ 
   var $el = $('.steady'); 
@@ -37,6 +37,6 @@ angular.module('lentodiilitApp')
   {
     $('.steady').css({'position': 'static', 'top': '0px'}); 
   } 
-});
+});*/
     
   });

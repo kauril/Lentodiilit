@@ -17,6 +17,7 @@
 </head>
 
 <body ng-app="lentodiilitApp" ng-controller="dealsCtrl">
+    <div ng-controller="weatherCtrl">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -88,11 +89,11 @@
 
     <!-- Add your site or application content here -->
     <div class="row">
-        <div class="steady" ng-controller="categoriesCtrl">
+        <!--<div class="steady" ng-controller="categoriesCtrl">
             <div class=col-md-4>
                 <radiobox></radiobox>
             </div>
-        </div>
+        </div>-->
 
         <div class="absolute" ng-show="showTravel">
             <matkatarjoukset></matkatarjoukset>
@@ -110,7 +111,7 @@
         <div class="absolute" ng-show="showHotel">
             <hotellitarjoukset></hotellitarjoukset>
         </div>
-        
+
         <div class="absolute" ng-show="showOther">
             <muuttarjoukset></muuttarjoukset>
         </div>
@@ -124,6 +125,8 @@
     <footer>
         <div ng-controller="updateCtrl">
             <update></update>
+        </div>
+        <div id="js"></div>
         </div>
 
     </footer>
@@ -142,6 +145,9 @@
         ga('send', 'pageview');
     </script>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -158,9 +164,11 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    
     <script src="scripts/controllers/dealsCtrl.js"></script>
     <script src="scripts/controllers/updateCtrl.js"></script>
     <script src="scripts/controllers/categoriesCtrl.js"></script>
+    <script src="scripts/controllers/weatherCtrl.js"></script>
 
     <script src="scripts/directives/deals.js"></script>
     <script src="scripts/directives/update.js"></script>
@@ -172,6 +180,7 @@
     <script src="scripts/directives/hotellitarjoukset.js"></script>
 
     <script src="scripts/services/AjaxFactory.js"></script>
+    <script src="scripts/services/AerisFactory.js"></script>
     <!-- endbuild -->
 </body>
 

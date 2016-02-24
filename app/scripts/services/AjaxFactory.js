@@ -24,6 +24,8 @@ angular
         ajaxFunctions.categories = function () {
             return $http.get(urlBase + '/categories?api_key=' + apiKey);
         };
-
+        
+        
+        
         return ajaxFunctions;
     });
