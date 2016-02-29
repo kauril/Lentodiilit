@@ -5,7 +5,7 @@ angular.module('lentodiilitApp')
 
         $scope.getDeals = function () {
             $scope.showTravel = false;
-            console.log($scope.showAll);
+            
             // kutsu deals-funktiota AjaxFactorystä
             var request = AjaxFactory.deals();
             request.then(function (response) {
@@ -84,8 +84,16 @@ angular.module('lentodiilitApp')
             var res = date.split(',');
             return res[0];
         };
+        
+        $scope.prepare = function(args){
+            console.log(args);
+            $scope.postID = args;
+            console.log($scope.postID);
+        };
 
         $scope.getDeals();
+    
+        
 
 
 

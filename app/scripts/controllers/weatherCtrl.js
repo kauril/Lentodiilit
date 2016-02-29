@@ -22,23 +22,24 @@ angular.module('lentodiilitApp')
             return res[0];
         };*/
 
-        /*$scope.getWeather = function (args) {
+        $scope.getWeather = function (args) {
 
             
             var res = args.split(' ');
-            var helsinki = 'helsinki';
+            res.reverse();
             
             
             console.log(res[0]);
-            /*if (res[0] === 'Airlines' || res[0] === 'Norwegian' || res[0] === 'Matkatarjoukset' || res[0] === 'SAS') {
+            if (res[0] === 'Airlines' || res[0] === 'Norwegian' || res[0] === 'Matkatarjoukset' || res[0] === 'SAS') {
     console.log('tämä tilalle: '+ res[1]);
                 if(res[1] === 'Airlines' || res[1] === 'Norwegian' || res[1] === 'Matkatarjoukset' || res[1] === 'SAS' || res[1] === 'lennot') {
                     console.log('tämä tilalle kaksi: '+ res[2]);
                 }
 }
             
+            
 
-            var request = AerisFactory.weatherEurope(helsinki);
+            /*var request = AerisFactory.weatherEurope(res[0]);
             request.then(function (response) {
                 // tee vastauksella jotain
                 console.log(response.data.response.ob.tempC);
@@ -48,23 +49,24 @@ angular.module('lentodiilitApp')
                 // tee virheellä jotain
                 console.log(error.data);
                  
-            });
+            });*/
             
-        };*/
-    $scope.getWeather = function () {
+            
+        };
+    $scope.owm = function () {
 
             
             
-            var res = 'helsinki';
-            
+            var res = 'london';
+           
             
             console.log(res);
          
 
-            var request = AerisFactory.weatherEurope(res);
+            var request = AerisFactory.owmWeather(res);
             request.then(function (response) {
                 // tee vastauksella jotain
-                console.log(response.data.response.ob.tempC);
+                console.log(response.data);
                 
             }, function (error) {
                 // tee virheellä jotain
@@ -73,7 +75,7 @@ angular.module('lentodiilitApp')
             });
             
         };
-    $scope.getWeather();
+    $scope.owm();
     
 
 
