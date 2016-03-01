@@ -7,7 +7,7 @@ angular
         var key = 'sOJxoHdYK8J4SdqHd1C1gmHhL5tUilKjsRpI7hvc';
         var aerisurlbase = 'http://api.aerisapi.com/observations/';
         var owmapikey = 'f32198c937ed4c7335c93b0ffacffeed';
-        var owmurlbase = 'api.openweathermap.org/data/2.5/weather?q=';
+        var owmurlbase = 'http://api.openweathermap.org/data/2.5/weather?q=';
         var aerisFunctions = {};
 
         aerisFunctions.weatherEurope = function (args) {
@@ -26,9 +26,8 @@ angular
         };
     
         aerisFunctions.owmWeather = function (args) {
-            var city = args;
-            console.log(city);
-            return $http.get(owmurlbase + city + '&units=metric&lang=fi&APPID=' + owmapikey );
+            //return args;
+            return $http.get(owmurlbase + args + '&units=metric&lang=fi&APPID=' + owmapikey );
         };
 
         return aerisFunctions;

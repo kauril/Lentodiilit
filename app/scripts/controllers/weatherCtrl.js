@@ -2,81 +2,50 @@
 
 angular.module('lentodiilitApp')
     .controller('weatherCtrl', function ($scope, AerisFactory) {
+        var timer = null;
+        var i = 0;
+        $scope.saa = null;
+        
+
+        $scope.$watch('diili', function (newValue, oldValue) {
+            console.log(newValue);
+            $scope.saa = null;
+            if (newValue !== undefined) {
+                var res = newValue.tags.split(' ');
+                timer = setInterval(function () {
+                    $scope.owm(res);
+                }, 200);
+            }
+
+        });
 
 
-        /*$scope.getWeather = function (args) {
-
-            var res = args.split(' ');
-            res.reverse();
-
-            var request = AerisFactory.weatherEurope(res);
+        $scope.owm = function (args) {
+            var request = AerisFactory.owmWeather(args[i]);
             request.then(function (response) {
                 // tee vastauksella jotain
-                console.log(response.data);
-                $scope.weather = response.data;
-                return $scope.weather;
-            }, function (error) {
-                // tee virheellä jotain
-                console.log(error.data);
-            });
-            return res[0];
-        };*/
-
-        $scope.getWeather = function (args) {
-
-            
-            var res = args.split(' ');
-            res.reverse();
-            
-            
-            console.log(res[0]);
-            if (res[0] === 'Airlines' || res[0] === 'Norwegian' || res[0] === 'Matkatarjoukset' || res[0] === 'SAS') {
-    console.log('tämä tilalle: '+ res[1]);
-                if(res[1] === 'Airlines' || res[1] === 'Norwegian' || res[1] === 'Matkatarjoukset' || res[1] === 'SAS' || res[1] === 'lennot') {
-                    console.log('tämä tilalle kaksi: '+ res[2]);
+                console.log(i + ', ' + response.data.name + ', ' + args[i]);
+                if (response.data.name === args[i]) {
+                    console.log(response.data.weather[0].description);
+                    $scope.saa = response.data;
+                    
                 }
-}
-            
-            
 
-            /*var request = AerisFactory.weatherEurope(res[0]);
-            request.then(function (response) {
-                // tee vastauksella jotain
-                console.log(response.data.response.ob.tempC);
-                var temp = response.data.response.ob.tempC;
-                return temp;
+                i++;
             }, function (error) {
                 // tee virheellä jotain
                 console.log(error.data);
-                 
-            });*/
-            
-            
-        };
-    $scope.owm = function () {
 
-            
-            
-            var res = 'london';
-           
-            
-            console.log(res);
-         
-
-            var request = AerisFactory.owmWeather(res);
-            request.then(function (response) {
-                // tee vastauksella jotain
-                console.log(response.data);
-                
-            }, function (error) {
-                // tee virheellä jotain
-                console.log(error.data);
-                 
+                i++;
             });
+
+
+            if (i >= args.length) {
+                clearInterval(timer);
+            }
+            console.log($scope.saa);
             
         };
-    $scope.owm();
-    
 
 
 

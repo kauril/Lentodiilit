@@ -1,26 +1,25 @@
 <div class="modal fade" tabindex="-1" role="dialog" id="infoModal">
-    <p>{{ postID }}</p>
-    <li ng-repeat="deal in deals | filter : {postid:  'post-30970' } : true">
-                    <div class="media">
-                        
-                        <div class="media-body">
-                            <h4 class="media-heading"><a href="{{ deal.url  }}">{{ deal.title }}</a></h4>
-                            
-                            <span class="text-muted">Julkaistu: {{ deal.published | date }}</span>
-                            <br>
-                            
-                            <span class="viesti" ng-show="deal.price != ''">{{ getPrice(deal.price) }}</span>
-                            <br>
-                            <!-- kuinka käytetään controllerissa dealsCtrl.js olevaa funktiota -->
-                            <!--<span class="viesti">{{ getPrice(deal.price) }}</span>                            
-                            <br>-->                            
-                            <span class="viesti">Kategoria: {{ deal.categories }}</span>
-                            <br>
-                            <span class="viesti" ng-show="deal.tags != ''">Avainsanat: {{ deal.tags }}</span>
-                            <span class="viesti" ng-show="deal.tags != ''">Sää: {{ getWeather(deal.tags)     }}</span>
-                            
-                            <hr>
-                        </div>
-                    </div>
-                </li>
+    
+        <div class="media">
+
+            <div class="media-body">
+                <h4 class="media-heading"><a href="{{ diili.url  }}">{{ diili.title }}</a></h4>
+
+                <span class="text-muted">Julkaistu: {{ diili.published | date }}</span>
+                <br>
+
+                <span class="viesti" ng-show="diili.price != ''">{{ getPrice(diili.price) }}</span>
+                <br>
+                <!-- kuinka käytetään controllerissa dealsCtrl.js olevaa funktiota -->
+                <!--<span class="viesti">{{ getPrice(deal.price) }}</span>                            
+                            <br>-->
+                <span class="viesti">Kategoria: {{ diili.categories }}</span>
+                <br>
+                <span class="viesti" ng-show="diili.tags != ''">Avainsanat: {{ diili.tags }}</span>
+                <br>
+                <span class="viesti" ng-show="diili.tags != '' && saa != 'null'">Sää: {{ saa.weather[0].description   }} <br>Lämpötila: {{ saa.main.temp   }}C</span>
+
+                <hr>
+            </div>
+        </div>
 </div>

@@ -5,7 +5,7 @@ angular.module('lentodiilitApp')
 
         $scope.getDeals = function () {
             $scope.showTravel = false;
-            
+
             // kutsu deals-funktiota AjaxFactorystä
             var request = AjaxFactory.deals();
             request.then(function (response) {
@@ -58,17 +58,18 @@ angular.module('lentodiilitApp')
             $scope.showFlight = false;
             $scope.showHotel = false;
             $scope.showOther = true;
-        }; 
-        
+        };
 
-        
-        
-    
+
+
+
+
         $scope.getPrice = function (price) {
-
-            var res = price.split(',');
-            res.reverse();
-            return res[0];
+            if (price !== undefined) {
+                var res = price.split(',');
+                res.reverse();
+                return res[0];
+            }
         };
 
         $scope.select = function () {
@@ -84,16 +85,15 @@ angular.module('lentodiilitApp')
             var res = date.split(',');
             return res[0];
         };
-        
-        $scope.prepare = function(args){
-            console.log(args);
-            $scope.postID = args;
-            console.log($scope.postID);
+
+        $scope.prepare = function (args) {
+            console.log('prepare');
+            $scope.diili = args;
+            console.log($scope.diili);
         };
 
         $scope.getDeals();
-    
-        
+
 
 
 
