@@ -4,15 +4,12 @@
     <div class="panel panel-default">
         <div class=panel-body>
             <ul class=media-list id=deals>
-                <li ng-repeat="deal in deals" ng-class="{red: hover}" 
-    >
+                <li ng-repeat="deal in deals" >
+ 
                     <div class="media" data-toggle="modal" data-target="#infoModal" ng-click="prepare(deal)" >
                         
                         <div class="media-body" >
                             <h4 class="media-heading">{{ deal.title }}</h4>
-                            
-                            
-                            
                             <hr>
                         </div>
                         </div>

@@ -11,9 +11,9 @@ body {
 .steady {    
     position:fixed;
     top:0;    
-    z-index:100;
-    float: left;
-    background-color: #BDBCF6;
+    z-index:50;
+    
+    margin: auto; 
 }
 
 .absolute {    
@@ -23,13 +23,20 @@ body {
 
 #infoModal {
     background-color: white;
+    margin: auto; 
     
 }
 
 .media{
-    cursor: pointer;
-   
+    cursor: pointer;   
 }
-.red {
-  background-color: gainsboro;
+
+.col-md-8{
+    padding-top: 90px;
+}
+
+.navbar {
+    margin: auto;
+    background-color:darkorange;
+    
 }

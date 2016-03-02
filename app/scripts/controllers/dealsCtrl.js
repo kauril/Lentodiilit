@@ -59,6 +59,16 @@ angular.module('lentodiilitApp')
             $scope.showHotel = false;
             $scope.showOther = true;
         };
+    
+        $scope.getAll = function () {
+
+            console.log('Kaikki diilit');
+            $scope.showTravel = false;
+            $scope.showAll = true;
+            $scope.showFlight = false;
+            $scope.showHotel = false;
+            $scope.showOther = false;
+        };
 
 
 

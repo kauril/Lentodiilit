@@ -3,9 +3,8 @@
 angular.module('lentodiilitApp')
     .controller('weatherCtrl', function ($scope, AerisFactory) {
         var timer = null;
-        var i = 0;
-        $scope.saa = null;
-        
+
+
 
         $scope.$watch('diili', function (newValue, oldValue) {
             console.log(newValue);
@@ -21,17 +20,24 @@ angular.module('lentodiilitApp')
 
 
         $scope.owm = function (args) {
+            var i = 0;
             var request = AerisFactory.owmWeather(args[i]);
             request.then(function (response) {
                 // tee vastauksella jotain
+                $scope.kuvaus = 'Ei saatavaika';
+
                 console.log(i + ', ' + response.data.name + ', ' + args[i]);
                 if (response.data.name === args[i]) {
-                    console.log(response.data.weather[0].description);
                     $scope.saa = response.data;
-                    
+                    $scope.kuvaus = $scope.saa.weather[0].description;
+                    console.log('Kuvaus' + $scope.kuvaus);
+                    clearInterval(timer);
                 }
-
                 i++;
+                if (i = args.length) {
+
+                    clearInterval(timer);
+                }
             }, function (error) {
                 // tee virheellä jotain
                 console.log(error.data);
@@ -40,11 +46,8 @@ angular.module('lentodiilitApp')
             });
 
 
-            if (i >= args.length) {
-                clearInterval(timer);
-            }
-            console.log($scope.saa);
-            
+
+            console.log(args.length);
         };
 
 
