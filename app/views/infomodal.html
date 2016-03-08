@@ -1,26 +1,27 @@
-<div class="modal fade" tabindex="-1" role="dialog" id="infoModal">
-    
-        <div class="media">
+<div class="modal fade" tabindex="-1" role="dialog" id="infoModal" >
 
-            <div class="media-body">
-                <h4 class="media-heading"><a href="{{ diili.url  }}">{{ diili.title }}</a></h4>
+    <div class="media">
 
-                <span class="text-muted">Julkaistu: {{ diili.published | date }}</span>
-                <br>
+        <div class="media-body">
+            <h4 class="media-heading"><a href="{{ diili.url  }}">{{ diili.title }}</a></h4>
 
-                <span class="viesti" ng-show="diili.price != ''">{{ getPrice(diili.price) }}</span>
-                <br>
-                <!-- kuinka käytetään controllerissa dealsCtrl.js olevaa funktiota -->
-                <!--<span class="viesti">{{ getPrice(deal.price) }}</span>                            
+            <span class="text-muted">Julkaistu: {{ diili.published | date }}</span>
+            <br>
+
+            <span class="viesti" ng-show="diili.price != ''">{{ diili.price  }}</span>
+            <br>
+            <!-- kuinka käytetään controllerissa dealsCtrl.js olevaa funktiota -->
+            <!--<span class="viesti">{{ getPrice(deal.price) }}</span>                            
                             <br>-->
-                <span class="viesti">Kategoria: {{ diili.categories }}</span>
-                <br>
-                <span class="viesti" ng-show="diili.tags != ''">Avainsanat: {{ diili.tags }}</span>
-                <br>
-                <span class="viesti" ng-show="diili.tags != '' && saa != 'null'">Sää: {{ kuvaus  }} <br>Lämpötila: {{ saa.main.temp   }}C</span>
-                <br>
-                <button data-toggle="modal" data-target="#infoModal" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >Takaisin</button>
-                <hr>
-            </div>
+            <span class="viesti">Kategoria: {{ diili.categories }}</span>
+            <br>
+            <span class="viesti" ng-show="diili.tags != ''">Avainsanat: {{ diili.tags }}</span>
+            <br>
+            <span class="viesti" ng-show="diili.tags != ''">Sää: <span ng-show="kuvaus != 'Ei saatavilla'">{{saa.name}}</span> {{ kuvaus }}
+            <br><span ng-show="kuvaus != 'Ei saatavilla'">Lämpötila: {{ saa.main.temp   }} °C</span></span>
+            <br>
+            <button data-toggle="modal" data-target="#infoModal" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Takaisin</button>
+            
         </div>
+    </div>
 </div>

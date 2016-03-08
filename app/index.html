@@ -15,105 +15,104 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
+    
 
 <body ng-app="lentodiilitApp" ng-controller="dealsCtrl">
     <div ng-controller="weatherCtrl">
-    <nav class="navbar navbar-default steady" >
-        
-        <div class="container-fluid">
-            
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <h3 class="navbar-brand" style="color: white;" ng-click="getAll()">Huokeet reissut</h3>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                
+        <nav class="navbar navbar-default steady">
+
+            <div class="container-fluid">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <h1 id="navheader" class="navbar-brand"  ng-click="getAll()">Huokeet reissut</h1>
+                    <span id="navglyph" class="navbar-brand glyphicon glyphicon-certificate" ></span>
+                    
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="all" ng-click="getAll()" type="submit" class="btn btn-default navbar-btn"  data-target="#bs-example-navbar-collapse-1">
+                            Kaikki Diilit
+                        </li>
+                        <li id="flight" ng-click="getFlights()" type="submit" class="btn btn-default navbar-btn"  data-target="#bs-example-navbar-collapse-1">
+                            Lennot
+                        </li>
+                        <li id="travel" ng-click="getTravels()" type="submit" class="btn btn-default navbar-btn"  data-target="#bs-example-navbar-collapse-1">
+                            Matkat
+                        </li>
+                        <li id="hotel" ng-click="getHotels()" type="submit" class="btn btn-default navbar-btn"  data-target="#bs-example-navbar-collapse-1">
+                            Hotellit
+                        </li>
+                        <li id="other" ng-click="getOthers()" type="submit" class="btn btn-default navbar-btn"  data-target="#bs-example-navbar-collapse-1">
+                            Muut
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-                <ul class="nav navbar-nav navbar-right" >
-                    <li>
-                        <button ng-click="getAll()" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >Kaikki Diilit</button>
-                    </li>
-                    <li>
-                        <button ng-click="getFlights()" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Lennot</button>
-                    </li>
-                    <li>
-                        <button ng-click="getTravels()" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Matkat</button>
-                    </li>
-                    <li>
-                        <button ng-click="getHotels()" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Hotellit</button>
-                    </li>
-                    <li>
-                        <button ng-click="getOthers()" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Muut</button>
-                    </li> 
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+            <!-- /.container-fluid -->
+        </nav>
+       
 
 
 
-    
 
-    <!--[if lte IE 8]>
+
+        <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="row">
-        <!--<div class="steady" ng-controller="categoriesCtrl">
-            <div class=col-md-4>
-                <radiobox></radiobox>
+        <!-- Add your site or application content here -->
+        <div class="row ">
+
+
+            <div class="absolute" ng-show="showTravel">
+                <matkatarjoukset></matkatarjoukset>
             </div>
-        </div>-->
-        
-        <div class="absolute" ng-show="showTravel">
-            <matkatarjoukset></matkatarjoukset>
+
+
+            <div class="absolute" ng-show="showAll">
+                <deals></deals>
+            </div>
+
+            <div class="absolute" ng-show="showFlight">
+                <lentotarjoukset></lentotarjoukset>
+            </div>
+
+            <div class="absolute" ng-show="showHotel">
+                <hotellitarjoukset></hotellitarjoukset>
+            </div>
+
+            <div class="absolute" ng-show="showOther">
+                <muuttarjoukset></muuttarjoukset>
+            </div>
+            <div>
+                <infomodal></infomodal>
+            </div>
+            
         </div>
-
-
-        <div class="absolute" ng-show="showAll">
-            <deals></deals>
-        </div>
-
-        <div class="absolute" ng-show="showFlight">
-            <lentotarjoukset></lentotarjoukset>
-        </div>
-
-        <div class="absolute" ng-show="showHotel">
-            <hotellitarjoukset></hotellitarjoukset>
-        </div>
-
-        <div class="absolute" ng-show="showOther">
-            <muuttarjoukset></muuttarjoukset>
-        </div>
-        <div>
-            <infomodal></infomodal>
-        </div>
-
-
-
 
     </div>
+
+
 
 
     <footer>
         <div ng-controller="updateCtrl">
             <update></update>
         </div>
-        <div id="js"></div>
-        </div>
-
+        
     </footer>
 
 
@@ -149,7 +148,7 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    
+
     <script src="scripts/controllers/dealsCtrl.js"></script>
     <script src="scripts/controllers/updateCtrl.js"></script>
     <script src="scripts/controllers/categoriesCtrl.js"></script>
@@ -157,7 +156,7 @@
 
     <script src="scripts/directives/deals.js"></script>
     <script src="scripts/directives/update.js"></script>
-    <script src="scripts/directives/categories.js"></script>    
+    <script src="scripts/directives/categories.js"></script>
     <script src="scripts/directives/matkatarjoukset.js"></script>
     <script src="scripts/directives/lentotarjoukset.js"></script>
     <script src="scripts/directives/muuttarjoukset.js"></script>

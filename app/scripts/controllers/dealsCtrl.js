@@ -59,7 +59,7 @@ angular.module('lentodiilitApp')
             $scope.showHotel = false;
             $scope.showOther = true;
         };
-    
+
         $scope.getAll = function () {
 
             console.log('Kaikki diilit');
@@ -103,7 +103,29 @@ angular.module('lentodiilitApp')
         };
 
         $scope.getDeals();
+    
+        var timer = null;
 
+        timer = setInterval(function () {
+            var width = $(window).width();
+            if (width <= 767) {
+
+                $("#all").attr("data-toggle", "collapse");
+                $("#flight").attr("data-toggle", "collapse");
+                $("#travel").attr("data-toggle", "collapse");
+                $("#hotel").attr("data-toggle", "collapse");
+                $("#other").attr("data-toggle", "collapse");
+            }
+            if (width > 767) {
+
+                $("#all").removeAttr("data-toggle", "collapse");
+                $("#flight").removeAttr("data-toggle", "collapse");
+                $("#travel").removeAttr("data-toggle", "collapse");
+                $("#hotel").removeAttr("data-toggle", "collapse");
+                $("#other").removeAttr("data-toggle", "collapse");
+            }
+
+        }, 2000);
 
 
 
