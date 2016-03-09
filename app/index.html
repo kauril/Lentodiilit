@@ -25,8 +25,9 @@
 
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
+                    
                     <h1 id="navheader" class="navbar-brand"  ng-click="getAll()">Huokeet reissut</h1>
-                    <span id="navglyph" class="navbar-brand glyphicon glyphicon-certificate" ></span>
+                    <span id="navglyph" class="navbar-brand glyphicon glyphicon-certificate" ></span> 
                     
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
@@ -111,6 +112,9 @@
     <footer>
         <div ng-controller="updateCtrl">
             <update></update>
+            <br>
+            <p style="text-align: center;">Data is provided by <strong><a href="http://apisuomi.fi/apis/lentodiilit/api/">Lentodiilit Unofficial Open API</a></strong> and <strong><a href="http://openweathermap.org/api">OpenWeatherMap</a></strong>
+ </p>
         </div>
         
     </footer>

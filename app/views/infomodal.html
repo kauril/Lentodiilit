@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" role="dialog" id="infoModal" >
+<div class="modal fade fade-in one" tabindex="-1" role="dialog" id="infoModal" >
 
     <div class="media">
 
@@ -17,8 +17,8 @@
             <br>
             <span class="viesti" ng-show="diili.tags != ''">Avainsanat: {{ diili.tags }}</span>
             <br>
-            <span class="viesti" ng-show="diili.tags != ''">Sää: <span ng-show="kuvaus != 'Ei saatavilla'">{{saa.name}}</span> {{ kuvaus }}
-            <br><span ng-show="kuvaus != 'Ei saatavilla'">Lämpötila: {{ saa.main.temp   }} °C</span></span>
+            <span class="viesti" ng-show="diili.tags != ''">Sää: <span ng-show="kuvaus != 'Ei saatavilla'">{{saa.name}}</span> {{ kuvaus }} 
+            <br><span ng-show="kuvaus != 'Ei saatavilla'">Lämpötila: {{ saa.main.temp   }}  °C  <img src="http://openweathermap.org/img/w/{{icon}}.png"></span></span>
             <br>
             <button data-toggle="modal" data-target="#infoModal" type="submit" class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Takaisin</button>
             

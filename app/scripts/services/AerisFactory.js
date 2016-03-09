@@ -14,6 +14,11 @@ angular
             //return args;
             return $http.get(owmurlbase + args + '&units=metric&lang=fi&APPID=' + owmapikey );
         };
+    
+        /*aerisFunctions.owmIcon = function (args) {
+            //return args;
+            return $http.get('http://api.openweathermap.org/img/w/'+args+'.png');
+        };*/
 
         return aerisFunctions;
 

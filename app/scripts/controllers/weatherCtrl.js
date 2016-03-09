@@ -25,23 +25,29 @@ angular.module('lentodiilitApp')
                 request.then(function (response) {
                     // tee vastauksella jotain
                     $scope.kuvaus = 'Ei saatavilla';
-
+                    
                     console.log(i + ', ' + response.data.name + ', ' + args[i]);
                     if (response.data.name === args[i]) {
                         $scope.saa = response.data;
+                        console.log(response.data.weather[0].icon);
+                        $scope.icon = response.data.weather[0].icon;
+                        
                         $scope.kuvaus = $scope.saa.weather[0].description;
                         console.log('Kuvaus' + $scope.kuvaus);
                         clearInterval(timer);
-                        var cv = Math.floor( 255 - $scope.saa.main.temp * 5);
+                        var cv = Math.floor( 255 - $scope.saa.main.temp * 8);
+                        
                         console.log(cv);
                         bg ='rgb(255,' + cv + ',0)';
                         console.log(bg);
-                         $("#infoModal").attr('style', 'display: block; padding-right: 0px; background-color: '+bg+';');
+                         $(".fade-in").attr('style', 'display: block; padding-right: 0px; background-color: '+bg+';');
+                        
+                       
                     }
                     i++;
                     console.log(i);
                     if (i >= args.length) {
-
+                        $(".fade-in").attr('style', 'display: block; padding-right: 0px; background-color: rgb(255,255,0);');
                         clearInterval(timer);
                     }
                 }, function (error) {
